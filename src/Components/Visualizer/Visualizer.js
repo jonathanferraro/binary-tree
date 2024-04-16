@@ -6,7 +6,7 @@ import { formatArrayToTreeMap } from "../../utils/utils";
 export function Visualizer(props) {
   let { data } = props;
 
-
+// debug test data
   const treeData = {
     name: "1",
     children: [
@@ -35,8 +35,10 @@ export function Visualizer(props) {
       style={{ height: "900px" }}
       className="border border-black mx-10 mt-10 "
     >
-      <Tree data={data} orientation={"vertical"} depthFactor={0} pathFunc={straightPathFunc} 
-      translate={{ x: 700, y: 20 }}
+      <Tree data={data} orientation={"vertical"} depthFactor={0} 
+      pathFunc={straightPathFunc} collapsible={false} 
+      enableLegacyTransitions={true}
+      translate={{ x: 700, y: 100 }}
       
       className='justify-center'/>
     </div>

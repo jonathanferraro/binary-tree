@@ -70,7 +70,7 @@ export class Queue {
     }
 }
 
-
+// Converts an array to a binary tree
 export let arrayToBinaryTree = (arr) => {
     if (arr.length === 0) {
         return null;
@@ -107,16 +107,8 @@ export let arrayToBinaryTree = (arr) => {
 }
 
 
-
-export let formatArrayToTreeMap = (arr) => {
-    if (arr.length === 0) {
-        return null;
-    }
-    
-    if (arr.length === 1) {
-        return new TreeNode(arr[0])
-    }
-    
+// Converts an array to a tree map representation.
+export let formatArrayToTreeMap = (arr) => { 
     let q = new Queue();
     
     let res = {
@@ -168,15 +160,22 @@ export let formatArrayToTreeMap = (arr) => {
     return res;
 }
 
-
+// Takes a string array and converts it to a JavaScript array format, handling numbers and null values.
 export let formatUserStringArrayToArray = (stringArr) => {
     
+    // check if string has valid parenthesis
     if (stringArr[0] !== '[' || stringArr[stringArr.length - 1] !== ']') {
-      return false;
+      return {error: true, message: 'Invalid format. Please enter an array in the form of [1,2,3,4,null,5,6]'};
     }
 
     let newArr = stringArr.slice(1,-1);
     newArr = newArr.split(',');
+
+    // check if array has valid length
+    if (newArr.length > 400 || newArr[0] == '') {
+      return {error: true, message: 'Invalid format. Maximum length is 400.'};
+    }
+
     let res = [];
 
     for (let i=0; i < newArr.length; i++) {
@@ -205,8 +204,8 @@ export let formatUserStringArrayToArray = (stringArr) => {
         continue;
       }
 
-      return false;
+      return {error: true, message: 'Invalid format. Please enter an array in the form of [1,2,3,4,null,5,6]'};
     }
 
-    return res;
+    return {error: false, array: res};
   };
