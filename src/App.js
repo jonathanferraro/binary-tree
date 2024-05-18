@@ -5,7 +5,7 @@ import { MainUI } from './Components/MainUI/MainUI';
 
 function App() {
   return (
-    <div className="App">
+    <div style={{height: "100vh"}} className="App bg-blue-300 ">
       <MainUI />
     </div>
   );

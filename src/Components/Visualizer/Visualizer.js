@@ -32,8 +32,8 @@ export function Visualizer(props) {
 
   return (
     <div
-      style={{ height: "900px" }}
-      className="border border-black mx-10 mt-10 "
+      style={{ height: "900px", width: "100%" }}
+      className="border border-black   bg-white"
     >
       <Tree data={data} orientation={"vertical"} depthFactor={0} 
       pathFunc={straightPathFunc} collapsible={false} 
